@@ -221,7 +221,8 @@ void login_input()
         break;
 
     case 3:
-        printf(TXTRED"\n\nHave a Good Day!\n\n"TXTRST);
+        system("cls");
+        printf(TXTRED"\n\n\t\tHave a Good Day!\n\n"TXTRST);
         break;
     }
 }
