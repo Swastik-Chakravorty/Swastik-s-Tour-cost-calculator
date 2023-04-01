@@ -1,6 +1,7 @@
 #ifndef LOGIN_DOT_H
 #define LOGIN_DOT_H
 #include<stdio.h>
+#include<conio.h>
 #include<string.h>
 #include <ctype.h>
 
