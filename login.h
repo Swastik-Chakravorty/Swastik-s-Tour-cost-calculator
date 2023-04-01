@@ -127,11 +127,12 @@ void astericPass(struct login usr)
             fwrite(&usr, sizeof(struct login), 1, fp);
             if (fwrite != 0)
             {
-                printf("\n\nRagistration successful. \nYour user name is: %s\n", usr.username);
+                printf("\n\nRagistration successful. \nYour username is: %s\n", usr.username);
             }
             else{
                 printf("\nSorry! something went wrong :(\n");
             }
+            fclose(fp);
 
         }
         else {
@@ -142,12 +143,11 @@ void astericPass(struct login usr)
 
 void login_input()
 {
-    int opt;
+    FILE *fpr;
+    int opt, usrFound = 0, i;
     struct login user;
-    user.username[0] = '\0';
-    user.email[0] = '\0';
-    user.password[0] = '\0';
-    user.fullName[0] = '\0';
+    struct login user2;
+    char usrName[50], pWord[9], pwd2;
     printf(TXTYLW "\nPlease choose your operation:\n");
     printf("1: Signup\n");
     printf("2: Login\n");
@@ -160,6 +160,10 @@ void login_input()
     switch (opt)
     {
     case 1:
+        user.username[0] = '\0';
+        user.email[0] = '\0';
+        user.password[0] = '\0';
+        user.fullName[0] = '\0';
         printf("\nEnter your Full Name: ");
         fgets(user.fullName, 50, stdin);
         printf("\nEnter your email: ");
@@ -169,7 +173,47 @@ void login_input()
         break;
 
     case 2:
+        usrName[0] = '\0';
+        pWord[0] = '\0';
+        printf("\nEnter your username: ");
+        scanf("%s", &usrName);
+        printf("\nEnter your password: ");
+        for (i = 0; i < 10; i++)
+            {
+                pwd2 = getch();
+                pWord[i] = pwd2;
 
+                if (pwd2 == 13  || pwd2 == 9 || pwd2 == 8)
+                {
+                    pWord[i] = '\0';
+                    break;
+                }
+                else
+                    printf("*");
+            }
+            pWord[i] = '\0';
+
+        fpr = fopen("Users.dat", "r");
+        while (fread(&user2, sizeof(struct login), 1, fpr))
+        {
+            if (strcmp(user2.username, usrName) == 0){
+                if (strcmp(user2.password, pWord) == 0){
+                    printf("\n\n\tWelcome %s\n", user2.fullName);
+                    printf("\n|Full Name: %s\n", user2.fullName);
+                    printf("|Email: %s\n", user2.email);
+                    printf("|Username: %s\n", user2.username);
+                }
+                else {
+                    printf("\n\nInvalid Username or Password!\n");
+                }
+                usrFound = 1;
+            }
+        }
+        if (usrFound != 1)
+        {
+            printf("\n\nUser is not registered!");
+        }
+        fclose(fpr);
         break;
 
     default:
