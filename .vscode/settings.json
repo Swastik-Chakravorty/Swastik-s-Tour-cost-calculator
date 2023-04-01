@@ -3,6 +3,7 @@
         "stdio.h": "c",
         "string.h": "c",
         "login.h": "c",
-        "ctype.h": "c"
+        "ctype.h": "c",
+        "destination_details.h": "c"
     }
 }

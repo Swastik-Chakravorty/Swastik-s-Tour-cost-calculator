@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "Login.h"
 #include "Destination_Details.h"
+#include "Travel_Mode.h"
 
 int main()
 {
@@ -8,6 +9,7 @@ int main()
 
     login_input();
     work();
+    travel();
 
     return 0;
 }
