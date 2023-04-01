@@ -104,9 +104,22 @@ void login_input()
         fgets(user.email, 50, stdin);
         do
         {
+            int i;
+            char pwd;
             printf("\nYour password needs at least one uppercase letter, lowercase letter, number and symbol and must be 8 characters long\n");
             printf("Enter your password: ");
-            fgets(user.password, 9, stdin);
+            // fgets(user.password, 9, stdin);
+            for(i=0; i<10; i++)
+             {
+             pwd = getch();
+             user.password[i] = pwd;
+      
+             if(pwd != 13)
+                   printf("*");
+             if(pwd == 13)
+                   break;
+             }
+            user.password[i]='\0';
         } while (valid(user.password) == 0);
         
         break;
