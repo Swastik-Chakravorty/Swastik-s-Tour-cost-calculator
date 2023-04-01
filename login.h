@@ -1,19 +1,15 @@
 #ifndef LOGIN_DOT_H
 #define LOGIN_DOT_H
-#include<stdio.h>
-#include<conio.h>
-#include<string.h>
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
 #include <ctype.h>
 
-#define TXTRED   "\033[0;31m"
-#define TXTGRN   "\033[0;32m"
-#define TXTYLW   "\033[0;33m"
-#define TXTBLU   "\033[0;34m"
-#define TXTRST   "\033[0m"
-
-#define ENTER 13
-#define TAB 9
-#define BCKSPC 8
+#define TXTRED "\033[0;31m"
+#define TXTGRN "\033[0;32m"
+#define TXTYLW "\033[0;33m"
+#define TXTBLU "\033[0;34m"
+#define TXTRST "\033[0m"
 
 struct login
 {
@@ -32,16 +28,16 @@ struct login
 
 int valid(char password[9])
 {
-    int checkLower = 0; //Default return false
+    int checkLower = 0; // Default return false
     int checkUpper = 0;
     int checkNumber = 0;
     int checkSymbol = 0;
 
-    if (strlen(password) > 8 || strlen(password) < 8) //Pasword must be 8 characters long
+    if (strlen(password) > 8 || strlen(password) < 8) // Pasword must be 8 characters long
     {
         return 0;
     }
-    for (int i = 0; i < strlen(password); i++) //loop to check uppercase, lowercase, number, symbol
+    for (int i = 0; i < strlen(password); i++) // loop to check uppercase, lowercase, number, symbol
     {
         if (islower(password[i]))
         {
@@ -61,23 +57,25 @@ int valid(char password[9])
         }
     }
 
-    //Password is valid only if all the checking are true
+    // Password is valid only if all the checking are true
     if (checkLower == 1 && checkUpper == 1 && checkNumber == 1 && checkSymbol == 1)
     {
         return 1;
     }
 
     return 0;
-} 
+}
 
 void generateUsername(char email[50], char username[50])
 {
     for (int i = 0; i < strlen(email); i++)
     {
-        if (email[i] == '@'){
+        if (email[i] == '@')
+        {
             break;
         }
-        else {
+        else
+        {
             username[i] = email[i];
         }
     }
@@ -87,12 +85,12 @@ void login_input()
 {
     int opt;
     struct login user;
-    printf(TXTYLW"\nPlease choose your operation:\n");
+    printf(TXTYLW "\nPlease choose your operation:\n");
     printf("1: Signup\n");
     printf("2: Login\n");
     printf("3: Exit\n");
 
-    printf("\nYour choice: "TXTRST);
+    printf("\nYour choice: " TXTRST);
     scanf("%d", &opt);
     fgetc(stdin);
 
@@ -110,25 +108,24 @@ void login_input()
             printf("\nYour password needs at least one uppercase letter, lowercase letter, number and symbol and must be 8 characters long\n");
             printf("Enter your password: ");
             // fgets(user.password, 9, stdin);
-            for(i=0; i<10; i++)
-             {
-             pwd = getch();
-             user.password[i] = pwd;
-      
-             if(pwd != 13)
-                   printf("*");
-             if(pwd == 13)
-                   break;
-             }
-            user.password[i]='\0';
+            for (i = 0; i < 10; i++)
+            {
+                pwd = getch();
+                user.password[i] = pwd;
+
+                if (pwd != 13)
+                    printf("*");
+                if (pwd == 13)
+                    break;
+            }
+            user.password[i] = '\0';
         } while (valid(user.password) == 0);
-        
+
         break;
-    
+
     default:
         break;
     }
-
 }
 
 #endif
