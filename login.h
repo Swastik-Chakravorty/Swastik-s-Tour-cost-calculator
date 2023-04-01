@@ -3,9 +3,17 @@
 
 struct login
 {
-    char Name[50];
-    char Username[50];
-    char Password[50];
+    char fullName[50];
+    char email[50];
+    char username[50];
+    char password[50];
 };
+
+void userInput(char ch[50])
+{
+    fgets(ch, 50, stdin);
+    ch[strlen(ch) - 1] = 0;
+
+}
 
 #endif
