@@ -84,6 +84,7 @@ void generateUsername(char email[50], char username[50])
 void login_input()
 {
     int opt;
+    char pass[9];
     struct login user;
     printf(TXTYLW "\nPlease choose your operation:\n");
     printf("1: Signup\n");
@@ -107,7 +108,7 @@ void login_input()
             char pwd;
             printf("\nYour password needs at least one uppercase letter, lowercase letter, number and symbol and must be 8 characters long\n");
             printf("Enter your password: ");
-            // fgets(user.password, 9, stdin);
+  
             for (i = 0; i < 10; i++)
             {
                 pwd = getch();
@@ -120,6 +121,31 @@ void login_input()
             }
             user.password[i] = '\0';
         } while (valid(user.password) == 0);
+
+        break;
+
+    case 2:
+        printf("\nEnter your username: ");
+
+        do
+        {
+            int j;
+            char pwd1;
+            printf("\nYour password needs at least one uppercase letter, lowercase letter, number and symbol and must be 8 characters long\n");
+            printf("Enter your password: ");
+  
+            for (j = 0; j < 10; j++)
+            {
+                pwd1 = getch();
+                pass[j] = pwd1;
+
+                if (pwd1 != 13)
+                    printf("*");
+                if (pwd1 == 13)
+                    break;
+            }
+            pass[j] = '\0';
+        } while (valid(pass) == 0);
 
         break;
 
