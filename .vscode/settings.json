@@ -2,6 +2,7 @@
     "files.associations": {
         "stdio.h": "c",
         "string.h": "c",
-        "login.h": "c"
+        "login.h": "c",
+        "ctype.h": "c"
     }
 }

@@ -4,6 +4,7 @@
 #include <conio.h>
 #include <string.h>
 #include <ctype.h>
+#include <windows.h>
 
 #define TXTRED "\033[0;31m"
 #define TXTGRN "\033[0;32m"
@@ -85,7 +86,7 @@ void astericPass(struct login usr)
     char pwd;
     do
         {
-            printf("\nYour password needs at least one uppercase letter, one lowercase letter, one number and one symbol and must be 8 characters long \n*** Don't press enter / tab / backspace during typing the password***\n");
+            printf(TXTBLU"\nYour password needs at least one uppercase letter, one lowercase letter, one number and one symbol and must be 8 characters long \n*** Don't press enter / tab / backspace during typing the password***\n");
             printf("\nEnter your password: ");
   
             for (i = 0; i < 10; i++)
@@ -136,7 +137,8 @@ void astericPass(struct login usr)
 
         }
         else {
-            printf("\n\n***Please enter the correct password ???\n\n");
+            printf("\n\n***Please enter the correct password ???\n\n"TXTRST);
+            Beep(800, 300);
             astericPass(usr);
         }
 }
@@ -160,13 +162,14 @@ void login_input()
     switch (opt)
     {
     case 1:
+        system("cls");
         user.username[0] = '\0';
         user.email[0] = '\0';
         user.password[0] = '\0';
         user.fullName[0] = '\0';
-        printf("\nEnter your Full Name: ");
+        printf(TXTBLU"\nEnter your Full Name: ");
         fgets(user.fullName, 50, stdin);
-        printf("\nEnter your email: ");
+        printf("\nEnter your email: "TXTRST);
         fgets(user.email, 50, stdin);
         astericPass(user);
 
@@ -175,7 +178,7 @@ void login_input()
     case 2:
         usrName[0] = '\0';
         pWord[0] = '\0';
-        printf("\nEnter your username: ");
+        printf(TXTGRN"\nEnter your username: ");
         scanf("%s", &usrName);
         printf("\nEnter your password: ");
         for (i = 0; i < 10; i++)
@@ -192,12 +195,12 @@ void login_input()
                     printf("*");
             }
             pWord[i] = '\0';
-
         fpr = fopen("Users.dat", "r");
         while (fread(&user2, sizeof(struct login), 1, fpr))
         {
             if (strcmp(user2.username, usrName) == 0){
                 if (strcmp(user2.password, pWord) == 0){
+                    system("cls");
                     printf("\n\n\tWelcome %s\n", user2.fullName);
                     printf("\n|Full Name: %s\n", user2.fullName);
                     printf("|Email: %s\n", user2.email);
@@ -205,18 +208,20 @@ void login_input()
                 }
                 else {
                     printf("\n\nInvalid Username or Password!\n");
+                    Beep(800, 300);
                 }
                 usrFound = 1;
             }
         }
         if (usrFound != 1)
         {
-            printf("\n\nUser is not registered!");
+            printf("\n\nUser is not registered!"TXTRST);
         }
         fclose(fpr);
         break;
 
-    default:
+    case 3:
+        printf(TXTRED"\n\nHave a Good Day!\n\n"TXTRST);
         break;
     }
 }
