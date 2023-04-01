@@ -77,8 +77,9 @@ char generateUsername(char email[50], char username[50])
     username[i] = '\0';
 }
 
-void astericPass(char pass1[9], char email[50], char username[50])
+void astericPass(struct login usr)
 {
+    FILE *fp;
     char pass2[9];
     int i;
     char pwd;
@@ -90,18 +91,18 @@ void astericPass(char pass1[9], char email[50], char username[50])
             for (i = 0; i < 10; i++)
             {
                 pwd = getch();
-                pass1[i] = pwd;
+                usr.password[i] = pwd;
 
                 if (pwd == 13  || pwd == 9 || pwd == 8)
                 {
-                    pass1[i] = '\0';
+                    usr.password[i] = '\0';
                     break;
                 }
                 else
                     printf("*");
             }
-            pass1[i] = '\0';
-        } while (valid(pass1) == 0);
+            usr.password[i] = '\0';
+        } while (valid(usr.password) == 0);
 
         printf("\nConfirm your password: ");
 
@@ -119,10 +120,19 @@ void astericPass(char pass1[9], char email[50], char username[50])
                     printf("*");
             }
             pass2[i] = '\0';
-        if (strcmp(pass1, pass2) == 0)
+        if (strcmp(usr.password, pass2) == 0)
         {
-            generateUsername(email, username);
-            printf("\nYour username is: %s", username);
+            generateUsername(usr.email, usr.username);
+            fp = fopen("Users.dat", "a+"); //"a+" will work as "w", additionally "a+" will set the cursor at the end of the file, so when new information will be added it not overwrite on the earlier information
+            fwrite(&usr, sizeof(struct login), 1, fp);
+            if (fwrite != 0)
+            {
+                printf("\n\nRagistration successful. \nYour user name is: %s\n", usr.username);
+            }
+            else{
+                printf("\nSorry! something went wrong :(\n");
+            }
+
         }
         else {
             printf("\nPlease enter the correct password\n");
@@ -153,7 +163,7 @@ void login_input()
         fgets(user.fullName, 50, stdin);
         printf("\nEnter your email: ");
         fgets(user.email, 50, stdin);
-        astericPass(user.password, user.email, user.username);
+        astericPass(user);
 
         break;
 
