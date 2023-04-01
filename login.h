@@ -19,13 +19,6 @@ struct login
     char password[9];
 };
 
-// void userInput(char ch[50])
-// {
-//     fgets(ch, 50, stdin);
-//     ch[strlen(ch) - 1] = 0;
-
-// }
-
 int valid(char password[9])
 {
     int checkLower = 0; // Default return false
@@ -66,9 +59,10 @@ int valid(char password[9])
     return 0;
 }
 
-void generateUsername(char email[50], char username[50])
+char generateUsername(char email[50], char username[50])
 {
-    for (int i = 0; i < strlen(email); i++)
+    int i = 0;
+    while( i < strlen(email))
     {
         if (email[i] == '@')
         {
@@ -78,14 +72,71 @@ void generateUsername(char email[50], char username[50])
         {
             username[i] = email[i];
         }
+        i++;
     }
+    username[i] = '\0';
+}
+
+void astericPass(char pass1[9], char email[50], char username[50])
+{
+    char pass2[9];
+    int i;
+    char pwd;
+    do
+        {
+            printf("\nYour password needs at least one uppercase letter, one lowercase letter, one number and one symbol and must be 8 characters long \n*** Don't press enter / tab / backspace during typing the password***\n");
+            printf("\nEnter your password: ");
+  
+            for (i = 0; i < 10; i++)
+            {
+                pwd = getch();
+                pass1[i] = pwd;
+
+                if (pwd == 13  || pwd == 9 || pwd == 8)
+                {
+                    pass1[i] = '\0';
+                    break;
+                }
+                else
+                    printf("*");
+            }
+            pass1[i] = '\0';
+        } while (valid(pass1) == 0);
+
+        printf("\nConfirm your password: ");
+
+            for (i = 0; i < 10; i++)
+            {
+                pwd = getch();
+                pass2[i] = pwd;
+
+                if (pwd == 13  || pwd == 9 || pwd == 8)
+                {
+                    pass2[i] = '\0';
+                    break;
+                }
+                else
+                    printf("*");
+            }
+            pass2[i] = '\0';
+        if (strcmp(pass1, pass2) == 0)
+        {
+            generateUsername(email, username);
+            printf("\nYour username is: %s", username);
+        }
+        else {
+            printf("\nPlease enter the correct password\n");
+        }
 }
 
 void login_input()
 {
     int opt;
-    char pass[9];
     struct login user;
+    user.username[0] = '\0';
+    user.email[0] = '\0';
+    user.password[0] = '\0';
+    user.fullName[0] = '\0';
     printf(TXTYLW "\nPlease choose your operation:\n");
     printf("1: Signup\n");
     printf("2: Login\n");
@@ -98,54 +149,15 @@ void login_input()
     switch (opt)
     {
     case 1:
-        printf("Enter your Full Name: ");
+        printf("\nEnter your Full Name: ");
         fgets(user.fullName, 50, stdin);
-        printf("Enter your email: ");
+        printf("\nEnter your email: ");
         fgets(user.email, 50, stdin);
-        do
-        {
-            int i;
-            char pwd;
-            printf("\nYour password needs at least one uppercase letter, lowercase letter, number and symbol and must be 8 characters long\n");
-            printf("Enter your password: ");
-  
-            for (i = 0; i < 10; i++)
-            {
-                pwd = getch();
-                user.password[i] = pwd;
-
-                if (pwd != 13)
-                    printf("*");
-                if (pwd == 13)
-                    break;
-            }
-            user.password[i] = '\0';
-        } while (valid(user.password) == 0);
+        astericPass(user.password, user.email, user.username);
 
         break;
 
     case 2:
-        printf("\nEnter your username: ");
-
-        do
-        {
-            int j;
-            char pwd1;
-            printf("\nYour password needs at least one uppercase letter, lowercase letter, number and symbol and must be 8 characters long\n");
-            printf("Enter your password: ");
-  
-            for (j = 0; j < 10; j++)
-            {
-                pwd1 = getch();
-                pass[j] = pwd1;
-
-                if (pwd1 != 13)
-                    printf("*");
-                if (pwd1 == 13)
-                    break;
-            }
-            pass[j] = '\0';
-        } while (valid(pass) == 0);
 
         break;
 
