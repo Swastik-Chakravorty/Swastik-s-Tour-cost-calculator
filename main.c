@@ -3,6 +3,7 @@
 
 int main()
 {
+    system("color 0e");
     int opt;
     printf("\n\t\t--------------WELCOME TO SWASTIK'S TOUR COST CALCULATOR------------\n");
     printf("\nPlease choose your operation:\n");
@@ -12,6 +13,9 @@ int main()
 
     printf("\nYour choice: ");
     scanf("%d", &opt);
+    fgetc(stdin);
+
+
 
     return 0;
 }
