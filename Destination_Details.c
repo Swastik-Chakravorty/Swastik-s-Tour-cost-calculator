@@ -8,7 +8,8 @@
     int k = 0;
     char src_stn[12][15] = {"New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose", "Boulder", "Virginia"};
     char dst_stn[12][30] = {"New York City", "Los Angeles", "Chicago", "Washington, D.C.", "Las Vegas", "San Francisco", "New Orleans", "Asheville, North Carolina", "Hawaii", "Sedona and the Grand Canyon", "Florida", "Big Sur"};
-    
+
+    printf("Plaese choose your Source Station by number: ");
     for (int i =0; i < 3; i++)
     {
         for (int j = k; j < k+4; j++)
