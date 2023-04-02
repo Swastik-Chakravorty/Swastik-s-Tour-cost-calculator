@@ -143,7 +143,7 @@ void astericPass(struct login usr)
         }
 }
 
-void login_input()
+int login_input()
 {
     FILE *fpr;
     int opt, usrFound = 0, i;
@@ -205,6 +205,7 @@ void login_input()
                     printf("\n|Full Name: %s\n", user2.fullName);
                     printf("|Email: %s\n", user2.email);
                     printf("|Username: %s\n", user2.username);
+                    return 1;
                 }
                 else {
                     printf("\n\nInvalid Username or Password!\n");
@@ -225,6 +226,7 @@ void login_input()
         printf(TXTRED"\n\n\t\tHave a Good Day!\n\n"TXTRST);
         break;
     }
+    return 0;
 }
 
 #endif
