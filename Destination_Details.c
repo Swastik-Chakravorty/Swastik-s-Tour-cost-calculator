@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 struct tour
 {
     char source[50];
@@ -12,9 +11,9 @@ struct tour
     char sightseeing[50];
 };
 
-
 // void travel(){
-    int main(){
+int main()
+{
     int usr_src, usr_dst;
     int k = 0;
     struct tour user;
@@ -25,28 +24,34 @@ struct tour
 
     printf("\n\nPlaese choose your Source Station (** You will have only 12 chances - Please write the name coorectly as mentioned below**): ");
     printf("\n\n");
-    for (int i =0; i < 3; i++)
+    for (int i = 0; i < 3; i++)
     {
-        for (int j = k; j < k+4; j++)
+        for (int j = k; j < k + 4; j++)
         {
             printf("%d: %s", (j + 1), src_stn[j]);
             printf("               ");
-            if (j == 4){
+            if (j == 4)
+            {
                 printf(" ");
             }
-            else if (j == 5){
+            else if (j == 5)
+            {
                 printf("\b");
             }
-            else if (j == 6){
+            else if (j == 6)
+            {
                 printf("\b\b\b\b");
             }
-            else if (j == 8){
+            else if (j == 8)
+            {
                 printf("  ");
             }
-            else if (j == 9){
+            else if (j == 9)
+            {
                 printf("  ");
             }
-            else if (j == 10){
+            else if (j == 10)
+            {
                 printf("\b");
             }
         }
@@ -59,24 +64,24 @@ struct tour
         printf("\nYour Source Station: ");
         gets(user.source);
 
-    for (int l = 0; l < 12; l++)
-    {
-        if (strcmp(src_stn[l], user.source) == 0){
-            printf("%s\n", src_stn[l]);
-            printf("%s\n", user.source);
-            printf("Mached\n");
-            printf("You Choose: %s\n", user.source);
-            x = 1;
+        for (int l = 0; l < 12; l++)
+        {
+            if (strcmp(src_stn[l], user.source) == 0)
+            {
+                printf("%s\n", src_stn[l]);
+                printf("%s\n", user.source);
+                printf("Mached\n");
+                printf("You Choose: %s\n", user.source);
+                x = 1;
+                break;
+            }
+        }
+
+        if (x == 1)
+        {
             break;
         }
     }
-
-    if (x == 1){
-        break;
-    }
-
-    }
-   
 }
 
 // #endif
