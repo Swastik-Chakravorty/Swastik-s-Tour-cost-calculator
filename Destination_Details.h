@@ -63,14 +63,13 @@ void mode(struct tour usr)
 void food(struct tour usr)
 {
     system("cls");
-    char hotel[3][30] = {"Bed and Breakfast/Inn", "Budget Hotel", "Luxury Hotel"};
-    char room[3][30] = {"Standard room", "Luxury room", "Dormitory"};
-    char foof[3][30] = {"Bistro", "Fine Dining", "Fine Dining"};
-    printf("\n\nPlaese choose your Hotel type \n(** You will have only 12 chances - \nPlease write the name coorectly as mentioned below**): ");
+    char food[3][30] = {"Bistro", "Fine Dining", "Fine Dining"};
+
+    printf("\n\nPlaese choose your Restaurant type \n(** You will have only 12 chances - \nPlease write the name coorectly as mentioned below**): ");
     printf("\n\n");
     for (int i = 0; i < 3; i++)
     {
-        printf("%d: %s", (i + 1), hotel[i]);
+        printf("%d: %s", (i + 1), food[i]);
         if (i != 2)
         {
             printf("                ");
@@ -81,21 +80,21 @@ void food(struct tour usr)
     for (int k = 0; k < 12; k++)
     {
         int x = 0;
-        printf("\n\nYour Hotel type: ");
-        gets(usr.hotel);
+        printf("\n\nYour Restaurant type: ");
+        gets(usr.food);
 
         for (int l = 0; l < 12; l++)
         {
-            if (strcmp(hotel[l], usr.hotel) == 0)
+            if (strcmp(food[l], usr.food) == 0)
             {
-                printf("%s\n", hotel[l]);
-                printf("%s\n", usr.hotel);
+                printf("%s\n", food[l]);
+                printf("%s\n", usr.food);
                 printf("Mached\n");
                 printf("%s\n", usr.source);
                 printf("%s\n", usr.destination);
-                printf("You Choose: %s\n", usr.hotel);
+                printf("You Choose: %s\n", usr.food);
                 x = 1;
-                mode(usr);
+                // mode(usr);
                 break;
             }
         }
@@ -109,7 +108,7 @@ void food(struct tour usr)
 void room(struct tour usr)
 {
     system("cls");
-    char room[3][30] = {"Standard room", "Luxury room", "Dormitory"};
+    char room[3][30] = {"Standard Room", "Luxury Room", "Dormitory"};
 
     printf("\n\nPlaese choose your Room type \n(** You will have only 12 chances - \nPlease write the name coorectly as mentioned below**): ");
     printf("\n\n");
@@ -140,7 +139,7 @@ void room(struct tour usr)
                 printf("%s\n", usr.destination);
                 printf("You Choose: %s\n", usr.room);
                 x = 1;
-                // food(usr);
+                food(usr);
                 break;
             }
         }
