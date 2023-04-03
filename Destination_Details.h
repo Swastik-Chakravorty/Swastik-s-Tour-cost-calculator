@@ -62,7 +62,7 @@ void mode(struct tour usr)
 void food(struct tour usr)
 {
     system("cls");
-    char food[3][30] = {"Bistro", "Fine Dining", "Fine Dining"};
+    char food[3][30] = {"Bistro", "Fine Dining", "Family-Style"};
 
     printf("\n\nPlaese choose your Restaurant type \n(** You will have only 12 chances - \nPlease write the name coorectly as mentioned below**): ");
     printf("\n\n");
