@@ -24,10 +24,10 @@ void mode(struct tour usr)
     printf("\n\n");
     for (int i = 0; i < 4; i++)
     {
-        printf("%d: %s", (i + 1), hotel[i]);
-        if (i != 2)
+        printf("%d: %s", (i + 1), mode[i]);
+        if (i != 3)
         {
-            printf("                ");
+            printf("             ");
         }
     }
     printf("\n\n");
@@ -36,18 +36,18 @@ void mode(struct tour usr)
     {
         int x = 0;
         printf("\n\nYour Hotel type: ");
-        gets(usr.hotel);
+        gets(usr.mode);
 
         for (int l = 0; l < 12; l++)
         {
-            if (strcmp(hotel[l], usr.hotel) == 0)
+            if (strcmp(mode[l], usr.mode) == 0)
             {
-                printf("%s\n", hotel[l]);
-                printf("%s\n", usr.hotel);
+                printf("%s\n", mode[l]);
+                printf("%s\n", usr.mode);
                 printf("Mached\n");
                 printf("%s\n", usr.source);
                 printf("%s\n", usr.destination);
-                printf("You Choose: %s\n", usr.hotel);
+                printf("You Choose: %s\n", usr.mode);
                 x = 1;
                 break;
             }
