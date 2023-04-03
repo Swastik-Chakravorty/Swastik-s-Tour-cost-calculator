@@ -87,12 +87,8 @@ void food(struct tour usr)
         {
             if (strcmp(food[l], usr.food) == 0)
             {
-                printf("%s\n", food[l]);
-                printf("%s\n", usr.food);
-                printf("Mached\n");
-                printf("%s\n", usr.source);
-                printf("%s\n", usr.destination);
                 printf("You Choose: %s\n", usr.food);
+                sleep(2);
                 x = 1;
                 mode(usr);
                 break;
