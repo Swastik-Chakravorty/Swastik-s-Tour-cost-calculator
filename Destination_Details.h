@@ -1,5 +1,5 @@
-// #ifndef DESTINATION_DETAILS_DOT_H
-// #define DESTINATION_DETAILS_DOT_H
+#ifndef DESTINATION_DETAILS_DOT_H
+#define DESTINATION_DETAILS_DOT_H
 #include <stdio.h>
 #include <string.h>
 #include <windows.h>
@@ -8,11 +8,24 @@ struct tour
 {
     char source[50];
     char destination[50];
-    char mode[10];
     char sightseeing[50];
+    char hotel[50];
+    char food[50];
+    char mode[10];
 };
 
-void destinations(char dst[12][50], struct tour usr){
+void hot_foo_mode(struct tour usr2)
+{
+    printf("Choose your luxurius hotel, delecius food & travel mode\n");
+}
+
+void sightseeing(struct tour usr1)
+{
+    hot_foo_mode(usr1);
+}
+
+void destinations(char dst[12][50], struct tour usr)
+{
     system("cls");
     int b = 0;
     printf("\n\nPlaese choose your Destination Station (** You will have only 12 chances - Please write the name coorectly as mentioned below**): ");
@@ -68,6 +81,7 @@ void destinations(char dst[12][50], struct tour usr){
                 printf("%s\n", usr.source);
                 printf("You Choose: %s\n", usr.destination);
                 y = 1;
+                sightseeing(usr);
                 break;
             }
         }
@@ -79,9 +93,10 @@ void destinations(char dst[12][50], struct tour usr){
     }
 }
 
-// void travel(){
-int main()
+void travel()
+// int main()
 {
+    system("cls");
     int a = 0;
     struct tour user;
 
@@ -124,6 +139,7 @@ int main()
         a += 4;
         printf("\n");
     }
+    fgetc(stdin);
 
     for (int l = 0; l < 12; l++)
     {
@@ -139,9 +155,8 @@ int main()
                 // printf("%s\n", user.source);
                 // printf("Mached\n");
                 printf("You Choose: %s\n", user.source);
-                destinations(dst_stn, user);
-
                 x = 1;
+                destinations(dst_stn, user);
                 break;
             }
         }
@@ -153,4 +168,4 @@ int main()
     }
 }
 
-// #endif
+#endif
