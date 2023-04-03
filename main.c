@@ -9,10 +9,10 @@ int main()
 {
     printf(TXTGRN "\e[1m\n\t\t--------------WELCOME TO SWASTIK'S TOUR COST CALCULATOR------------\n\e[m" TXTRST);
 
-    // int a;
-    // a = 
-    // login_input();
-    // if (a ==  1)
+    int a;
+    a = 
+    login_input();
+    if (a ==  1)
     {
         travel();
     }
