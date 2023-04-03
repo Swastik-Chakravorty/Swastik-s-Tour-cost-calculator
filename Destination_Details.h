@@ -6,17 +6,59 @@
 
 struct tour
 {
-    char source[50];
-    char destination[50];
-    char sightseeing[50];
-    char hotel[50];
-    char food[50];
-    char mode[10];
+    char source[30];
+    char destination[30];
+    char sightseeing[30];
+    char hotel[30];
+    char room[30];
+    char food[30];
+    char mode[30];
 };
 
 void hot_foo_mode(struct tour usr2)
 {
-    printf("Choose your luxurius hotel, delecius food & travel mode\n");
+    char hotel[3][30] = {"Bed and Breakfast/Inn", "Budget Hotel", "Luxury Hotel"};
+    char room[3][30] = {"Standard room", "Luxury room", "Dormitory"};
+    char foof[3][30] = {"Bistro", "Fine Dining", "Fine Dining"};
+    printf("\n\nPlaese choose your Hotel type \n(** You will have only 12 chances - \nPlease write the name coorectly as mentioned below**): ");
+    printf("\n\n");
+    for (int i = 0; i < 3; i++)
+    {
+        printf("%d: %s", (i + 1), hotel[i]);
+        if (i != 2)
+        {
+            printf("                ");
+        }
+    }
+    printf("\n\n");
+
+    // for (int l = 0; l < 12; l++)
+    // {
+    //     int y = 0;
+    //     printf("\n\nYour Destination Station: ");
+    //     gets(usr.destination);
+
+    //     for (int m = 0; m < 12; m++)
+    //     {
+    //         if (strcmp(dst[m], usr.destination) == 0)
+    //         {
+    //             printf("%s\n", dst[m]);
+    //             printf("%s\n", usr.destination);
+    //             printf("Mached\n");
+    //             printf("%s\n", usr.source);
+    //             printf("You Choose: %s\n", usr.destination);
+    //             y = 1;
+    //             sightseeing(usr);
+    //             break;
+    //         }
+    //     }
+
+    //     if (y == 1)
+    //     {
+    //         break;
+    //     }
+    // }
+
 }
 
 void sightseeing(struct tour usr1)
@@ -24,11 +66,11 @@ void sightseeing(struct tour usr1)
     hot_foo_mode(usr1);
 }
 
-void destinations(char dst[12][50], struct tour usr)
+void destinations(char dst[12][30], struct tour usr)
 {
     system("cls");
     int b = 0;
-    printf("\n\nPlaese choose your Destination Station (** You will have only 12 chances - Please write the name coorectly as mentioned below**): ");
+    printf("\n\nPlaese choose your Destination Station \n(** You will have only 12 chances - \nPlease write the name coorectly as mentioned below**): ");
     printf("\n\n");
     for (int i = 0; i < 3; i++)
     {
@@ -100,10 +142,10 @@ void travel()
     int a = 0;
     struct tour user;
 
-    char src_stn[12][50] = {"New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose", "Boulder", "Virginia"};
-    char dst_stn[12][50] = {"New York City", "Los Angeles", "Chicago", "Sedona and the Grand Canyon", "Las Vegas", "San Francisco", "New Orleans", "Asheville, North Carolina", "Hawaii", "Big Sur", "Florida", "Washington, D.C."};
+    char src_stn[12][30] = {"New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose", "Boulder", "Virginia"};
+    char dst_stn[12][30] = {"New York City", "Los Angeles", "Chicago", "Sedona and the Grand Canyon", "Las Vegas", "San Francisco", "New Orleans", "Asheville, North Carolina", "Hawaii", "Big Sur", "Florida", "Washington, D.C."};
 
-    printf("\n\nPlaese choose your Source Station (** You will have only 12 chances - Please write the name coorectly as mentioned below**): ");
+    printf("\n\nPlaese choose your Source Station \n(** You will have only 12 chances - \nPlease write the name coorectly as mentioned below**): ");
     printf("\n\n");
     for (int i = 0; i < 3; i++)
     {
@@ -151,9 +193,6 @@ void travel()
         {
             if (strcmp(src_stn[m], user.source) == 0)
             {
-                // printf("%s\n", src_stn[m]);
-                // printf("%s\n", user.source);
-                // printf("Mached\n");
                 printf("You Choose: %s\n", user.source);
                 x = 1;
                 destinations(dst_stn, user);
