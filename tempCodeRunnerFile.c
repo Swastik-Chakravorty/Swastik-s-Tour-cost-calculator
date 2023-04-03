@@ -1,1 +1,2 @@
-    // if (j < 4){
+printf("\nYour Source Station: ");
+        gets(user.source);
