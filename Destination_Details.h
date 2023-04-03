@@ -18,12 +18,11 @@ struct tour
 void mode(struct tour usr)
 {
     system("cls");
-    char hotel[3][30] = {"Bed and Breakfast/Inn", "Budget Hotel", "Luxury Hotel"};
-    char room[3][30] = {"Standard room", "Luxury room", "Dormitory"};
-    char foof[3][30] = {"Bistro", "Fine Dining", "Fine Dining"};
-    printf("\n\nPlaese choose your Hotel type \n(** You will have only 12 chances - \nPlease write the name coorectly as mentioned below**): ");
+    char mode[4][30] = {"Car", "Train", "Bus", "Flight"};
+
+    printf("\n\nPlaese choose your Mode of transport \n(** You will have only 12 chances - \nPlease write the name coorectly as mentioned below**): ");
     printf("\n\n");
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
     {
         printf("%d: %s", (i + 1), hotel[i]);
         if (i != 2)
@@ -94,7 +93,7 @@ void food(struct tour usr)
                 printf("%s\n", usr.destination);
                 printf("You Choose: %s\n", usr.food);
                 x = 1;
-                // mode(usr);
+                mode(usr);
                 break;
             }
         }
