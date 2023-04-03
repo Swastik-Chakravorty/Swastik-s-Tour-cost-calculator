@@ -253,11 +253,8 @@ void destinations(char dst[12][30], struct tour usr)
         {
             if (strcmp(dst[l], usr.destination) == 0)
             {
-                printf("%s\n", dst[l]);
-                printf("%s\n", usr.destination);
-                printf("Mached\n");
-                printf("%s\n", usr.source);
                 printf("You Choose: %s\n", usr.destination);
+                sleep(2);
                 x = 1;
                 sightseeing(usr);
                 break;
