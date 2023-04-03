@@ -46,14 +46,13 @@ void mode(struct tour usr)
                 printf("\n\n%s\n", mode[l]);
                 printf("%s\n", usr.mode);
                 printf("\nMached\n");
-                printf("\n\n%s\n", usr.source);
-                printf("%s\n", usr.destination);
-                printf("%s\n", usr.sightseeing);
-                printf("%s\n", usr.hotel);
-                printf("%s\n", usr.room);
-                printf("%s\n", usr.food);
-                printf("%s\n", usr.mode);
-                printf("You Choose: %s\n", usr.mode);
+                printf("\n\nYour starting place: %s\n", usr.source);
+                printf("Your destination place: %s\n", usr.destination);
+                // printf("%s\n", usr.sightseeing);
+                printf("You choose hotel type: %s\n", usr.hotel);
+                printf("You choose room type: %s\n", usr.room);
+                printf("You choose restaurant type: %s\n", usr.food);
+                printf("You choose mode of transport from source to destination: %s\n", usr.mode);
                 x = 1;
                 break;
             }
