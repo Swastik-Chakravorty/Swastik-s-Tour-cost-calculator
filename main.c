@@ -2,8 +2,6 @@
 #include <string.h>
 #include "Login.h"
 #include "Destination_Details.h"
-// #include "Travel_Mode.h"
-// #include "Tour_Details.h"
 
 int main()
 {
