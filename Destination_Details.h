@@ -49,6 +49,7 @@ void mode(struct tour usr)
                 printf("%s\n", usr.source);
                 printf("%s\n", usr.destination);
                 printf("You Choose: %s\n", usr.mode);
+                sleep(2);
                 x = 1;
                 break;
             }
