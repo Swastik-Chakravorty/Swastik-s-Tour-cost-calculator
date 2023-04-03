@@ -43,13 +43,17 @@ void mode(struct tour usr)
         {
             if (strcmp(mode[l], usr.mode) == 0)
             {
-                printf("%s\n", mode[l]);
+                printf("\n\n%s\n", mode[l]);
                 printf("%s\n", usr.mode);
-                printf("Mached\n");
-                printf("%s\n", usr.source);
+                printf("\nMached\n");
+                printf("\n\n%s\n", usr.source);
                 printf("%s\n", usr.destination);
+                printf("%s\n", usr.sightseeing);
+                printf("%s\n", usr.hotel);
+                printf("%s\n", usr.room);
+                printf("%s\n", usr.food);
+                printf("%s\n", usr.mode);
                 printf("You Choose: %s\n", usr.mode);
-                sleep(2);
                 x = 1;
                 break;
             }
@@ -89,7 +93,7 @@ void food(struct tour usr)
             if (strcmp(food[l], usr.food) == 0)
             {
                 printf("You Choose: %s\n", usr.food);
-                sleep(2);
+                sleep(1);
                 x = 1;
                 mode(usr);
                 break;
@@ -130,7 +134,7 @@ void room(struct tour usr)
             if (strcmp(room[l], usr.room) == 0)
             {
                 printf("You Choose: %s\n", usr.room);
-                sleep(2);
+                sleep(1);
                 x = 1;
                 food(usr);
                 break;
@@ -171,7 +175,7 @@ void hotel(struct tour usr)
             if (strcmp(hotel[l], usr.hotel) == 0)
             {
                 printf("You Choose: %s\n", usr.hotel);
-                sleep(2);
+                sleep(1);
                 x = 1;
                 room(usr);
                 break;
@@ -243,7 +247,7 @@ void destinations(char dst[12][30], struct tour usr)
             if (strcmp(dst[l], usr.destination) == 0)
             {
                 printf("You Choose: %s\n", usr.destination);
-                sleep(2);
+                sleep(1);
                 x = 1;
                 sightseeing(usr);
                 break;
@@ -316,7 +320,7 @@ void travel()
             if (strcmp(src_stn[l], user.source) == 0)
             {
                 printf("You Choose: %s\n", user.source);
-                sleep(2);
+                sleep(1);
                 x = 1;
                 destinations(dst_stn, user);
                 break;
