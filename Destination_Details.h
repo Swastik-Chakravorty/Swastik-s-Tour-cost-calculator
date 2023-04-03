@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <windows.h>
+#include <unistd.h>
 
 struct tour
 {
@@ -329,6 +330,7 @@ void travel()
             if (strcmp(src_stn[l], user.source) == 0)
             {
                 printf("You Choose: %s\n", user.source);
+                sleep(2);
                 x = 1;
                 destinations(dst_stn, user);
                 break;
