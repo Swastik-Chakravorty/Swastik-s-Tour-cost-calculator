@@ -177,12 +177,8 @@ void hotel(struct tour usr)
         {
             if (strcmp(hotel[l], usr.hotel) == 0)
             {
-                printf("%s\n", hotel[l]);
-                printf("%s\n", usr.hotel);
-                printf("Mached\n");
-                printf("%s\n", usr.source);
-                printf("%s\n", usr.destination);
                 printf("You Choose: %s\n", usr.hotel);
+                sleep(2);
                 x = 1;
                 room(usr);
                 break;
