@@ -191,7 +191,44 @@ void hotel(struct tour usr)
 
 void sightseeing(struct tour usr)
 {
-    hotel(usr);
+    system("cls");
+    char sight[3][30] = {"To Be added", "To Be added", "To Be added"};
+
+    printf("\n\nPlaese choose your Sightseeing route number \n(** You will have only 12 chances - \nPlease write the name coorectly as mentioned below**): ");
+    printf("\n\n");
+    for (int i = 0; i < 3; i++)
+    {
+        printf("%d: %s", (i + 1), sight[i]);
+        if (i != 2)
+        {
+            printf("                ");
+        }
+    }
+    printf("\n\n");
+
+    for (int k = 0; k < 12; k++)
+    {
+        int x = 0;
+        printf("\n\nYour Hotel type: ");
+        gets(usr.sightseeing);
+
+        for (int l = 0; l < 12; l++)
+        {
+            if (strcmp(sight[l], usr.sightseeing) == 0)
+            {
+                printf("You Choose: %s\n", usr.sightseeing);
+                sleep(1);
+                x = 1;
+                hotel(usr);
+                break;
+            }
+        }
+
+        if (x == 1)
+        {
+            break;
+        }
+    }
 }
 
 void destinations(char dst[12][30], struct tour usr)
