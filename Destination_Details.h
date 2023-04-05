@@ -9,11 +9,12 @@ struct tour
 {
     char source[30];
     char destination[30];
-    char sightseeing[30];
+    char stay[30];
     char hotel[30];
     char room[30];
     char food[30];
     char mode[30];
+    char type[30];
 };
 
 void mode(struct tour usr)
@@ -36,7 +37,7 @@ void mode(struct tour usr)
     for (int k = 0; k < 12; k++)
     {
         int x = 0;
-        printf("\n\nYour Hotel type: ");
+        printf("\n\nYour Mode oftransport: ");
         gets(usr.mode);
 
         for (int l = 0; l < 12; l++)
@@ -48,7 +49,7 @@ void mode(struct tour usr)
                 printf("\nMached\n");
                 printf("\n\nYour starting place: %s\n", usr.source);
                 printf("Your destination place: %s\n", usr.destination);
-                // printf("%s\n", usr.sightseeing);
+                // printf("%s\n", usr.stay);
                 printf("You choose hotel type: %s\n", usr.hotel);
                 printf("You choose room type: %s\n", usr.room);
                 printf("You choose restaurant type: %s\n", usr.food);
@@ -189,16 +190,16 @@ void hotel(struct tour usr)
 
 }
 
-void sightseeing(struct tour usr)
+void stay(struct tour usr)
 {
     system("cls");
-    char sight[3][30] = {"To Be added", "To Be added", "To Be added"};
+    char stay[3][30] = {"2 Nights / 3 Days", "4 Nights / 5 Days", "6 Nights / 7 Days"};
 
-    printf("\n\nPlaese choose your Sightseeing route number \n(** You will have only 12 chances - \nPlease write the name coorectly as mentioned below**): ");
+    printf("\n\nPlaese choose your Staying duration \n(** You will have only 12 chances - \nPlease write the name coorectly as mentioned below**): ");
     printf("\n\n");
     for (int i = 0; i < 3; i++)
     {
-        printf("%d: %s", (i + 1), sight[i]);
+        printf("%d: %s", (i + 1), stay[i]);
         if (i != 2)
         {
             printf("                ");
@@ -209,14 +210,14 @@ void sightseeing(struct tour usr)
     for (int k = 0; k < 12; k++)
     {
         int x = 0;
-        printf("\n\nYour Hotel type: ");
-        gets(usr.sightseeing);
+        printf("\n\nYour Staying duration: ");
+        gets(usr.stay);
 
         for (int l = 0; l < 12; l++)
         {
-            if (strcmp(sight[l], usr.sightseeing) == 0)
+            if (strcmp(stay[l], usr.stay) == 0)
             {
-                printf("You Choose: %s\n", usr.sightseeing);
+                printf("You Choose: %s\n", usr.stay);
                 sleep(1);
                 x = 1;
                 hotel(usr);
