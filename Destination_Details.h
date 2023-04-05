@@ -5,6 +5,19 @@
 #include <windows.h>
 #include <unistd.h>
 
+#include "Boulder.h"
+#include "Chicago.h"
+#include "Dallas.h"
+#include "Houston.h"
+#include "Los_Angeles.h"
+#include "New_York.h"
+#include "Philadelphia.h"
+#include "Phoenix.h"
+#include "San_Antonio.h"
+#include "San_Diego.h"
+#include "San_Jose.h"
+#include "Virginia.h"
+
 struct tour
 {
     char source[30];
@@ -14,9 +27,72 @@ struct tour
     char room[30];
     char food[30];
     char mode[30];
-    char type[30];
+    char cost[30];
 };
 
+void cost(struct tour usr)
+{
+    if (strcmp(usr.source, "New York") == 0)
+    {
+        printf("\nmatched\n");
+    }
+
+    else if (strcmp(usr.source, "Los Angeles") == 0)
+    {
+        printf("\nmatched\n");
+    }
+    
+    else if (strcmp(usr.source, "Chicago") == 0)
+    {
+        printf("\nmatched\n");
+    }
+
+    else if (strcmp(usr.source, "Houston") == 0)
+    {
+        printf("\nmatched\n");
+    }
+
+    else if (strcmp(usr.source, "Phoenix") == 0)
+    {
+        printf("\nmatched\n");
+    }
+
+    else if (strcmp(usr.source, "Philadelphia") == 0)
+    {
+        printf("\nmatched\n");
+    }
+
+    else if (strcmp(usr.source, "San Antonio") == 0)
+    {
+        printf("\nmatched\n");
+    }
+
+    else if (strcmp(usr.source, "San Diego") == 0)
+    {
+        printf("\nmatched\n");
+    }
+
+    else if (strcmp(usr.source, "Dallas") == 0)
+    {
+        printf("\nmatched\n");
+    }
+
+    else if (strcmp(usr.source, "San Jose") == 0)
+    {
+        printf("\nmatched\n");
+    }
+
+    else if (strcmp(usr.source, "Boulder") == 0)
+    {
+        printf("\nmatched\n");
+    }
+
+    else if (strcmp(usr.source, "Virginia") == 0)
+    {
+        printf("\nmatched\n");
+    }
+
+}
 void mode(struct tour usr)
 {
     system("cls");
@@ -49,12 +125,14 @@ void mode(struct tour usr)
                 printf("\nMached\n");
                 printf("\n\nYour starting place: %s\n", usr.source);
                 printf("Your destination place: %s\n", usr.destination);
-                // printf("%s\n", usr.stay);
+                printf("%s\n", usr.stay);
                 printf("You choose hotel type: %s\n", usr.hotel);
                 printf("You choose room type: %s\n", usr.room);
                 printf("You choose restaurant type: %s\n", usr.food);
                 printf("You choose mode of transport from source to destination: %s\n", usr.mode);
+                sleep(1);
                 x = 1;
+                cost(usr);
                 break;
             }
         }
