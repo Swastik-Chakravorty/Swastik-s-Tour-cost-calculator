@@ -286,7 +286,7 @@ void destinations(char dst[12][30], struct tour usr)
                 printf("You Choose: %s\n", usr.destination);
                 sleep(1);
                 x = 1;
-                sightseeing(usr);
+                stay(usr);
                 break;
             }
         }
